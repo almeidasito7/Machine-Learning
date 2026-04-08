@@ -1,0 +1,72 @@
+spring:
+  application:
+    name: agro-commodity-system
+
+  datasource:
+    url: jdbc:h2:mem:agrodb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    time-zone: America/Sao_Paulo
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+# LangChain4j / OpenAI
+langchain4j:
+  open-ai:
+    chat-model:
+      api-key: ${OPENAI_API_KEY:demo}
+      model-name: gpt-4o-mini
+      temperature: 0.7
+      max-tokens: 2048
+      log-requests: true
+      log-responses: true
+
+# Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+# Springdoc OpenAPI
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+
+# CORS
+app:
+  cors:
+    allowed-origins: "http://localhost:4200,http://localhost:3000"
+
+logging:
+  level:
+    com.agro: DEBUG
+    dev.langchain4j: INFO

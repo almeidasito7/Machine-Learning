@@ -1,0 +1,36 @@
+/* Global styles */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  background: #f5f7fa;
+}
+
+/* Material overrides */
+.mat-mdc-card {
+  border-radius: 12px !important;
+}
+
+/* Chip colors */
+.chip-yellow { background-color: #fff8e1 !important; color: #f57f17 !important; }
+.chip-brown  { background-color: #efebe9 !important; color: #4e342e !important; }
+.chip-red    { background-color: #ffebee !important; color: #b71c1c !important; }
+.chip-blue   { background-color: #e3f2fd !important; color: #0d47a1 !important; }
+.chip-green  { background-color: #e8f5e9 !important; color: #1b5e20 !important; }
+
+.bullish-chip { background-color: #e8f5e9 !important; color: #2e7d32 !important; }
+.bearish-chip { background-color: #ffebee !important; color: #c62828 !important; }
+.neutral-chip { background-color: #fff8e1 !important; color: #f57f17 !important; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #aaa; }
